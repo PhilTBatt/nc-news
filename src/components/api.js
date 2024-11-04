@@ -5,9 +5,13 @@ const api = axios.create({
 })
 
 export function fetchArticles() {
-    return api.get('/articles').then((response) => response.data.articles)
+    return api.get('/articles').then(response => response.data.articles)
 }
 
 export function fetchArticleById(article_id) {
-    return api.get(`/articles/${article_id}`).then((response) => response.data.article)
+    return api.get(`/articles/${article_id}`).then(response => response.data.article)
+}
+
+export function fetchComments(article_id) {
+    return api.get(`/articles/${article_id}/comments`).then(response => response.data.comments)
 }
