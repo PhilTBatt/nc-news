@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { FancyBox } from "./FancyBox";
-import axios from "axios";
+import { FancyBox } from "./FancyBox"
+import { fetchArticleById } from "./api"
+import { ErrorComponent } from "./ErrorComponent"
 
 export function IndividualArticle() {
     const {article_id} = useParams()
@@ -10,10 +11,9 @@ export function IndividualArticle() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        let endpoint = `https://nc-news-7miy.onrender.com/api/articles/${article_id}`
-        axios.get(endpoint)
+        fetchArticleById(article_id)
         .then(article => {
-            setArticle(article.data.article)
+            setArticle(article)
             setIsLoading(false)
         })
         .catch(err => setError(err))

@@ -5,7 +5,7 @@ export function ArticleCard({article}) {
 
     return (
         <FancyBox>
-            <li key={article.article_id}>
+            <li>
                 <h3>
                     <Link to={`/articles/${article.article_id}`}>{article.title}</Link>
                 </h3>
