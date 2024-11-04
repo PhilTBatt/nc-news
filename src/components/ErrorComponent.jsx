@@ -1,8 +1,7 @@
-export function ErrorComponent({ msg }) {
-    return (
-      <div>
-        <h1>Error</h1>
-        <p>{msg}</p>
-      </div>
-    );
-  };
+export function ErrorComponent({ msg, status }) {
+  return (
+    <div>
+      <h1>{status} {msg}</h1>
+    </div>
+  )
+}
