@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { FancyBox } from "./FancyBox"
-import { fetchArticleById, updateArticleLikes } from "./api"
+import { getArticleById, patchArticleLikes } from "./api"
 import { ErrorComponent } from "./ErrorComponent"
 import { CommentsList } from "./CommentsList"
 import { Expandable } from "./Expandable"
@@ -18,7 +18,7 @@ export function IndividualArticle() {
 
     useEffect(() => {
         setIsLoading(true)
-        fetchArticleById(article_id)
+        getArticleById(article_id)
         .then(article => {
             setArticle(article)
             setLikes(article.votes)
@@ -33,7 +33,7 @@ export function IndividualArticle() {
         setLikes(likes + likesIncrement)
         setHasLiked(currentVlaue => !currentVlaue)
 
-        updateArticleLikes(article_id, likesIncrement)
+        patchArticleLikes(article_id, likesIncrement)
         .catch(err => {
             setLikesError(err)
             setLikes(previousLikes)
