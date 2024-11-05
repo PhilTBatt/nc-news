@@ -1,16 +1,16 @@
 import { useState, useEffect } from 'react'
 import { ErrorComponent } from './ErrorComponent'
 import { ArticleCard } from './ArticleCard'
-import { fetchArticles } from './api'
+import { getArticles } from './api'
 
-export function ArtcileList() {
+export function ArticleList() {
     const [articles, setArticles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
-        fetchArticles()
+        getArticles()
         .then(articles => {
             setArticles(articles)
             setIsLoading(false)
