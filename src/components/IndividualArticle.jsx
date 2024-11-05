@@ -14,38 +14,37 @@ export function IndividualArticle() {
     const [likes, setLikes] = useState(null)
     const [hasLiked, setHasLiked] = useState(false)
     const [likesError, setLikesError] = useState(null)
-    const [isLikesLoading, setIsLikesLoading] = useState(null)
     
 
     useEffect(() => {
         setIsLoading(true)
-        setIsLikesLoading(true)
         fetchArticleById(article_id)
         .then(article => {
             setArticle(article)
             setLikes(article.votes)
             setIsLoading(false)
-            setIsLikesLoading(false)
         })
         .catch(err => setError(err))
-    }, [likes])
+    }, [])
 
-    function likeArticle(amount) {
-        setIsLikesLoading(true)
-        updateArticleLikes(article_id, amount)
-        .then(likes => {
-            setHasLiked(currentVlaue => !currentVlaue)
-            setLikes(likes)
-            setIsLikesLoading(false)
+    function likeArticle() {
+        const previousLikes = likes
+        const likesIncrement = !hasLiked ? 1 : -1
+        setLikes(likes + likesIncrement)
+        setHasLiked(currentVlaue => !currentVlaue)
+
+        updateArticleLikes(article_id, likesIncrement)
+        .catch(err => {
+            setLikesError(err)
+            setLikes(previousLikes)
         })
-        .catch(err => setLikesError(err))
     }
 
     return (
         <>
             <section>
                 <FancyBox>
-                    {isLoading && !isLikesLoading &&<p>Loading...</p>}
+                    {isLoading && <p>Loading...</p>}
                     {error && <ErrorComponent message={error.message} msg={error.msg} status={error.status} role="alert"/>}
                     <h3>
                         {article.title}
@@ -55,10 +54,13 @@ export function IndividualArticle() {
                         {article.body}
                     </p>
                     <br/>
-                    Likes: {article.votes}
-                    {!hasLiked && !isLikesLoading && <button onClick={()=>likeArticle(1)} aria-label="Like Button"> {!likesError ? 'Like' : 'Error'} </button>}
-                    {hasLiked && !isLikesLoading && <button onClick={()=>likeArticle(-1)} aria-label="Unlike Button"> {!likesError ? 'Unlike' : 'Error'} </button>}
-                    {isLikesLoading && <button>Loading...</button>}
+                    Likes: {likes}
+                    {!hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Like Button">
+                        {!likesError ? 'Like' : 'Error'}
+                    </button>}
+                    {hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Unlike Button">
+                        {!likesError ? 'Unlike' : 'Error'}
+                    </button>}
                     <br/>
                     Posted: {new Date(article.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})}
                     <br/>
