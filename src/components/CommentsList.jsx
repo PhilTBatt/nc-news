@@ -9,6 +9,7 @@ export function CommentsList({article_id}) {
     const [error, setError] = useState(null)
 
     useEffect(() => {
+        setIsLoading(true)
         fetchComments(article_id)
         .then(comments => {
             setComments(comments)
@@ -20,8 +21,8 @@ export function CommentsList({article_id}) {
     return (
         <>
             {isLoading && <p>Loading...</p>}
-            {error && <ErrorComponent msg={error.msg} status={error.status} />}
-            <ul className="comments-list">
+            {error && <ErrorComponent msg={error.msg} status={error.status} role="alert"/>}
+            <ul className="comments-list" aria-label="List of">
                 {comments.map(comment => {
                     return <CommentCard key={comment.comment_id} comment={comment}/>
                 })}

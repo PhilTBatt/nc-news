@@ -9,6 +9,7 @@ export function ArtcileList() {
     const [error, setError] = useState(null)
 
     useEffect(() => {
+        setIsLoading(true)
         fetchArticles()
         .then(articles => {
             setArticles(articles)
@@ -21,7 +22,7 @@ export function ArtcileList() {
         <section>
         {isLoading && <p>Loading...</p>}
         {error && <ErrorComponent message={error.message} />}
-        <ul className="article-list">
+        <ul className="article-list" aria-label="List of comments">
             {articles.map(article => {
                 return <ArticleCard key={article.article_id} article={article}/>
             })}
