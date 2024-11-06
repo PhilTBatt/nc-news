@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { UserContext } from "./contexts/User";
+import { FancyBox } from "./FancyBox";
 
 export function Home() {
     const [selectedUser, setSelectedUser] = useState('')
@@ -13,7 +14,7 @@ export function Home() {
     }
 
     return (
-        <section>
+        <FancyBox>
             <h2>
                 Welcome to NC news
             </h2>
@@ -38,6 +39,6 @@ export function Home() {
                     {`Hello ${user}!`}
                 </h3>
             }
-        </section>
+        </FancyBox>
     )
 }
