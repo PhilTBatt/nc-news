@@ -11,7 +11,7 @@ export function ArticleCard({article}) {
                 </h3>
                 Author: {article.author}
                 <br/>
-                Topic: {article.topic}
+                Topic: {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
                 <br/>
                 Likes: {article.votes}
                 <br/>
