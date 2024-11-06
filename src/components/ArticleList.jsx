@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { ErrorComponent } from './ErrorComponent'
 import { ArticleCard } from './ArticleCard'
 import { getArticles } from './api'
-import { Topics } from './Topics'
+import { FilterBar } from './FilterBar'
 import { useSearchParams } from 'react-router-dom'
 
 export function ArticleList() {
@@ -11,20 +11,22 @@ export function ArticleList() {
     const [error, setError] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const topicQuery = searchParams.get('topic')
+    const sortQuery = searchParams.get('sort_by')
+    const orderQuery = searchParams.get('order')
 
     useEffect(() => {
         setIsLoading(true)
-        getArticles(topicQuery)
+        getArticles(topicQuery, sortQuery, orderQuery)
         .then(articles => {
             setArticles(articles)
             setIsLoading(false)
         })
         .catch(err => setError(err))
-    }, [topicQuery])
+    }, [searchParams])
 
     return (
         <section>
-        <Topics setSearchParams={setSearchParams}/>
+        <FilterBar setSearchParams={setSearchParams} searchParams={searchParams}/>
         {isLoading && <p>Loading...</p>}
         {error && <ErrorComponent message={error.message} />}
         <ul className="article-list" aria-label="List of comments">

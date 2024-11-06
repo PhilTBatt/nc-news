@@ -17,7 +17,7 @@ export function CommentCard({comment, comments, setComments}) {
             setIsDeleting(false)
             setComments(comments.filter(notDeletedComment => notDeletedComment.comment_id !== comment.comment_id))
         })
-        .catch(err => setError(err))
+        .catch(err => setError('Error'))
     }
 
     return (
@@ -31,9 +31,8 @@ export function CommentCard({comment, comments, setComments}) {
                 <br/>
                 Posted: {new Date(comment.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })}
                 {comment.author === user && <button onClick={removeComment} disabled={isDeleting}>
-                    {isDeleting ? 'Deleting...' : 'Delete'}
+                    {!error && !isDeleting ? 'Delete' : !error ? 'Deleting' : 'Error'}
                 </button>}
-                {error && <ErrorComponent msg={error.msg} status={error.status} role="alert"/>}
             </li>
         </FancyBox>
     )
