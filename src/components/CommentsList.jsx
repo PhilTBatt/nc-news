@@ -25,12 +25,12 @@ export function CommentsList({article_id}) {
     return (
         <>
             {user.length === 0 ? <FancyBox>Select a user to post comment</FancyBox> :
-                <PostComment article_id={article_id} setComments={setComments} comments={comments}/>}
+                <PostComment article_id={article_id} setComments={setComments}/>}
             {isLoading && <p>Loading...</p>}
             {error && <ErrorComponent msg={error.msg} status={error.status} role="alert"/>}
             <ul className="comments-list" aria-label="List of">
                 {comments.map(comment => {
-                    return <CommentCard key={comment.comment_id} comment={comment}/>
+                    return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>
                 })}
             </ul>
         </>
