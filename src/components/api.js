@@ -15,7 +15,7 @@ export function getArticleById(article_id) {
 }
 
 export function getComments(article_id) {
-    return api.get(`/articles/${article_id}/comments`)
+    return api.get(`/articles/${article_id}/comments?limit=1000`)
     .then(response => response.data.comments)
 }
 
@@ -27,4 +27,8 @@ export function patchArticleLikes(article_id, amount) {
 export function postNewComment({article_id, user, newComment}) {
     return api.post(`/articles/${article_id}/comments`, {username: user, body: newComment})
     .then(response => response.data.comment)
+}
+
+export function deleteComment(comment_id) {
+    return api.delete(`/comments/${comment_id}`)
 }
