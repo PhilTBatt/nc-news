@@ -5,6 +5,7 @@ import { Home } from './components/Home'
 import { ArticleList } from './components/ArticleList';
 import { IndividualArticle } from './components/IndividualArticle';
 import { ErrorComponent } from './components/ErrorComponent';
+import { FancyBox } from './components/FancyBox';
 
 function App() {
 
@@ -15,7 +16,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<ArticleList />} />
         <Route path="/articles/:article_id" element={<IndividualArticle />} />
-        <Route path="*" element={<ErrorComponent msg={"Not Found"} status={404} />} />
+        <Route path="*" element={
+          <FancyBox>
+            <ErrorComponent msg={"Not Found"} status={404} />
+          </FancyBox>
+          } />
       </Routes>
     </>
   )

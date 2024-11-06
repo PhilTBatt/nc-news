@@ -24,7 +24,10 @@ export function IndividualArticle() {
             setLikes(article.votes)
             setIsLoading(false)
         })
-        .catch(err => setError(err))
+        .catch(err => {
+            setIsLoading(false)
+            setError(err)
+        })
     }, [])
 
     function likeArticle() {
@@ -41,11 +44,14 @@ export function IndividualArticle() {
     }
 
     return (
+        error ? <FancyBox>
+            <ErrorComponent status={error.status} msg={error.response.data.msg} />
+        </FancyBox> :
         <>
             <section>
                 <FancyBox>
                     {isLoading && <p>Loading...</p>}
-                    {error && <ErrorComponent message={error.message} msg={error.msg} status={error.status} role="alert"/>}
+                    {error && <ErrorComponent msg={error.response.data.msg} status={error.status} role="alert"/>}
                     <h3>
                         {article.title}
                     </h3>
