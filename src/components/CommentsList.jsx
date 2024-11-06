@@ -19,7 +19,10 @@ export function CommentsList({article_id}) {
             setComments(comments)
             setIsLoading(false)
         })
-        .catch(err => setError(err))
+        .catch(err => {
+            setIsLoading(false)
+            setError(err)
+        })
     }, [])
 
     return (
@@ -27,7 +30,7 @@ export function CommentsList({article_id}) {
             {user.length === 0 ? <FancyBox>Select a user to post comment</FancyBox> :
                 <PostComment article_id={article_id} setComments={setComments}/>}
             {isLoading && <p>Loading...</p>}
-            {error && <ErrorComponent msg={error.msg} status={error.status} role="alert"/>}
+            {error && <ErrorComponent msg={error.response.data.msg} status={error.status}/>}
             <ul className="comments-list" aria-label="List of">
                 {comments.map(comment => {
                     return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>

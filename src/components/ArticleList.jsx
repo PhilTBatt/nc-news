@@ -4,6 +4,7 @@ import { ArticleCard } from './ArticleCard'
 import { getArticles } from './api'
 import { FilterBar } from './FilterBar'
 import { useSearchParams } from 'react-router-dom'
+import { FancyBox } from './FancyBox'
 
 export function ArticleList() {
     const [articles, setArticles] = useState([])
@@ -21,14 +22,19 @@ export function ArticleList() {
             setArticles(articles)
             setIsLoading(false)
         })
-        .catch(err => setError(err))
+        .catch(err => {
+            setIsLoading(false)
+            setError(err)
+        })
     }, [searchParams])
 
     return (
+        error ? <FancyBox>
+            <ErrorComponent status={error.status} msg={error.response.data.msg} />
+        </FancyBox> :
         <section>
         <FilterBar setSearchParams={setSearchParams} searchParams={searchParams}/>
         {isLoading && <p>Loading...</p>}
-        {error && <ErrorComponent message={error.message} />}
         <ul className="article-list" aria-label="List of comments">
             {articles.map(article => {
                 return <ArticleCard key={article.article_id} article={article}/>
