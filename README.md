@@ -1,8 +1,24 @@
-# React + Vite
+# Northcoders News Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Live Web App](https://philtbatt-ncnews.netlify.app/)
 
-Currently, two official plugins are available:
+NC News is a full-stack news application where users can browse and read articles on various topics, filter by category, and sort by different criteria. The app provides users with an interface to explore content, view comments, and interact with articles. It uses the backend project I made here: [Northcoders News API](https://github.com/PhilTBatt/be-nc-news)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites:
+
+- Node.js v18.19.1
+
+### To run this project locally:
+
+ 1. Open your terminal and run the following command to clone the repository to your local machine:
+`git clone https://github.com/PhilTBatt/nc-news`
+
+2. Navigate into the cloned repository and run the following command to install the required dependencies:
+`npm install`
+
+3. Run the application so you can access it at http://localhost:3000:
+`npm start`
+
+---
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
