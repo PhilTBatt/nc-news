@@ -35,7 +35,7 @@ export function ArticleList() {
         <section>
         <FilterBar setSearchParams={setSearchParams} searchParams={searchParams}/>
         {isLoading && <p>Loading...</p>}
-        <ul className="article-list" aria-label="List of comments">
+        <ul id="article-list" aria-label="List of comments">
             {articles.map(article => {
                 return <ArticleCard key={article.article_id} article={article}/>
             })}

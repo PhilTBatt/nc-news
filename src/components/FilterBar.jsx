@@ -4,9 +4,9 @@ export function FilterBar({setSearchParams}) {
     const topics = ['Coding', 'Football', 'Cooking']
 
     return (
-        <FancyBox>
+        <FancyBox id="filter-bar">
             Topic:
-            <select onChange={event => setSearchParams(params => {
+            <select id="topic" onChange={event => setSearchParams(params => {
                 params.set('topic', event.target.value.toLowerCase())
                 return params
                 })}>
@@ -18,7 +18,7 @@ export function FilterBar({setSearchParams}) {
                 ))}
             </select>
             Sort By:
-            <select onChange={event => setSearchParams(params => {
+            <select id="aort-by" onChange={event => setSearchParams(params => {
                 const newParams = new URLSearchParams(params)
                 newParams.set('sort_by', event.target.value)
                 return newParams
@@ -40,7 +40,7 @@ export function FilterBar({setSearchParams}) {
                 </option>
             </select>
             Order By:
-            <select onChange={event => setSearchParams(params => {
+            <select id="order" onChange={event => setSearchParams(params => {
                 const newParams = new URLSearchParams(params)
                 event.target.value === 'ASC' ? newParams.set('order', event.target.value) : newParams.delete('order')
                 return newParams
