@@ -1,3 +1,3 @@
-export function FancyBox(props){
-    return <div className="fancy-box">{props.children}</div>
+export function FancyBox({children, id}){
+    return <div className="fancy-box" id={id}>{children}</div>
   }
