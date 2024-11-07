@@ -26,11 +26,12 @@ export function PostComment({setComments, article_id}) {
     }
 
     return (
-        <FancyBox className="post-comment">
-            <form onSubmit={updateComments}>
+        <FancyBox id="post-comment">
+            <form onSubmit={updateComments} id='post-comment-form'>
                 <label htmlFor="new-comment">
-                    Comment:
-                    <input
+                    <span>Comment:</span>
+                    <textarea
+                    rows="1"
                     id="new-comment"
                     value={newComment}
                     onChange={(event) => setNewComment(event.target.value)}

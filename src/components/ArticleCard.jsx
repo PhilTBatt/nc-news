@@ -15,10 +15,9 @@ export function ArticleCard({article}) {
                     <br/>
                     Topic: {article.topic.charAt(0).toUpperCase() + article.topic.slice(1)}
                     <br/>
-                    Posted: {new Date(article.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric'})}
-                    <br/>
                     Likes: {article.votes}
                     <br/>
+                    Posted: {new Date(article.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric'})}
                 </div>
             </li>
         </FancyBox>

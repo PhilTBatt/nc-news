@@ -1,0 +1,51 @@
+#cant-post-comment {
+    margin-top: 1vh;
+}
+
+#post-comment {
+    margin-top: 1vh;
+}
+
+#post-comment-form {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 4fr 1fr 0.1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+}
+
+#post-comment-form label {
+    text-align: left;
+    margin-left: 2vw;
+}
+
+#post-comment-form span {
+    vertical-align: super;
+}
+
+#post-comment-form textarea {
+    margin: 1vh 0 0 1.5vw;
+    width: 60%;
+}
+
+#post-comment-form button{
+    margin: 0.75vw;
+    font-size: 5vw;
+    line-height: 1.1;
+}
+
+#comments-list{
+    margin-top: 1vh;
+    list-style-type: none;
+    padding: 0;
+}
+
+#comments-list .fancy-box{
+    margin-top: 1vh;
+}
+
+#comments-list button{
+    margin: 0 0 1vw 5vw;
+    font-size: 5vw;
+    line-height: 1.1;
+}

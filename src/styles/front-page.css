@@ -16,14 +16,14 @@
     margin: 0 1vh;
 }
   
-#home-login button {
+button {
     font-size: 3vh;
     margin: 0;
     margin-top: 0.6vh;
     padding: 0 0.75vh;
 }
   
-#home-login button:hover {
+button:hover {
     background-color: rgba(0, 108, 162, 0.737);
     color: white;
 }
