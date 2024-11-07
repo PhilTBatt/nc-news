@@ -16,7 +16,7 @@ NC News is a full-stack news application where users can browse and read article
 2. Navigate into the cloned repository and run the following command to install the required dependencies:
 `npm install`
 
-3. Run the application so you can access it at http://localhost:3000:
+3. Run the application so you can access it at http://localhost:5173
 `npm start`
 
 ---

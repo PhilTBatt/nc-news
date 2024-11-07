@@ -49,28 +49,29 @@ export function IndividualArticle() {
         </FancyBox> :
         <>
             <section>
-                <FancyBox>
+                <FancyBox id="individual-article">
                     {isLoading && <p>Loading...</p>}
                     {error && <ErrorComponent msg={error.response.data.msg} status={error.status} role="alert"/>}
                     <h3>
                         {article.title}
                     </h3>
-                    User: {article.author}
                     <p>
                         {article.body}
                     </p>
-                    <br/>
-                    Likes: {likes}
-                    {!hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Like Button">
-                        {!likesError ? 'Like' : 'Error'}
-                    </button>}
-                    {hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Unlike Button">
-                        {!likesError ? 'Unlike' : 'Error'}
-                    </button>}
-                    <br/>
-                    Posted: {new Date(article.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric'})}
-                    <br/>
-                    <img src={article.article_img_url} alt="Article image"/>
+                    <div id="individual-article-info">
+                        <img src={article.article_img_url} alt="Article image"/>
+                        User: {article.author}
+                        <div>
+                            Likes: {likes}
+                            {!hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Like Button">
+                                {!likesError ? 'Like' : 'Error'}
+                            </button>}
+                            {hasLiked && <button onClick={likeArticle} disabled={likesError} aria-label="Unlike Button">
+                                {!likesError ? 'Unlike' : 'Error'}
+                            </button>}
+                        </div>
+                        Posted: {new Date(article.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric'})}
+                    </div>
                 </FancyBox>
             </section>
             <Expandable label="comments">

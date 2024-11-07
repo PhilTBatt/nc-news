@@ -1,0 +1,26 @@
+@import './front-page';
+@import './header';
+@import './articles';
+@import './individual-article';
+@import './comments';
+
+#root {
+  font-family: Arial;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  background-color: rgb(235, 235, 235);
+}
+
+.fancy-box {
+  background-color: rgba(11, 120, 174, 0.84);
+  border: 1.25vw solid transparent;
+  border-color: #000000;
+  width: 95vw
+}

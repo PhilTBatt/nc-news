@@ -1,0 +1,50 @@
+#individual-article h3{
+    text-decoration: underline;
+    font-size: 6.5vw;
+    margin: 0.5vw;
+    margin-top: 1vh;
+}
+
+#individual-article p {
+    margin: 1vh 0
+}
+
+#individual-article-info {
+    font-size: 5vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+}
+
+#individual-article img{
+    margin-top: 1vw;
+    width: 70%;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    justify-self: center;
+    margin-bottom: 0.5vh;
+}
+
+#individual-article-info div {
+    display: grid;
+    grid-template-columns: 5fr 2.5fr 1.25fr;
+    align-items: center;
+}
+
+#individual-article button{
+    font-size: 5vw;
+    margin: 0;
+    margin-bottom: 0.25vh;
+    line-height: 1.1;
+}
+
+.button-collapsed {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.button-expanded {
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}

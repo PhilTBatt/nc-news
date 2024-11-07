@@ -27,11 +27,11 @@ export function CommentsList({article_id}) {
 
     return (
         <>
-            {user.length === 0 ? <FancyBox>Select a user to post comment</FancyBox> :
+            {user.length === 0 ? <FancyBox id="cant-post-comment">Select a user to post comment</FancyBox> :
                 <PostComment article_id={article_id} setComments={setComments}/>}
             {isLoading && <p>Loading...</p>}
             {error && <ErrorComponent msg={error.response.data.msg} status={error.status}/>}
-            <ul className="comments-list" aria-label="List of">
+            <ul id="comments-list" aria-label="List of">
                 {comments.map(comment => {
                     return <CommentCard key={comment.comment_id} comment={comment} comments={comments} setComments={setComments}/>
                 })}

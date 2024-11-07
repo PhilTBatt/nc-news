@@ -20,7 +20,7 @@ export function Home() {
             </h2>
             {user.length === 0
             ?
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleLogin} id="home-login">
                     <label htmlFor="select-user">
                         User:
                         <select id="select-user" value={selectedUser} onChange={(event) => setSelectedUser(event.target.value)}>
