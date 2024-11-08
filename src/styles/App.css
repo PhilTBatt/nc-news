@@ -25,6 +25,11 @@ body {
   width: 95vw
 }
 
+img {
+  border: 0.6vh solid ;
+  border-color: #000000;
+}
+
 @media (min-width: 1024px) {
   .fancy-box {
     width: 75vw;
