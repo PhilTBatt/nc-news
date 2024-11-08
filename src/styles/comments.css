@@ -49,3 +49,31 @@
     font-size: 5vw;
     line-height: 1.1;
 }
+
+@media (min-width: 768px) {
+    #post-comment-form button{
+        font-size: 2.5vw;
+    }
+
+    #comments-list button{
+        font-size: 2.5vw;
+    }
+
+    #post-comment-form textarea {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1024px) {
+    #post-comment-form button{
+        font-size: 1.5vw;
+    }
+
+    #comments-list button{
+        font-size: 1vw;
+    }
+
+    #post-comment-form textarea {
+        width: 85%;
+    }
+}
