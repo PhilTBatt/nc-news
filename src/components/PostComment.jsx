@@ -20,7 +20,7 @@ export function PostComment({setComments, article_id}) {
             setNewComment('')
         })
         .catch(err => {
-            setIsLoading(false)
+            setIsPosting(false)
             setError(err)
         })
     }
@@ -39,7 +39,7 @@ export function PostComment({setComments, article_id}) {
                 </label>
                 <button type="submit">{isPosting ? 'Posting...' : 'Post'}</button>
             </form>
-            {error && <ErrorComponent msg={error.response.data.msg} status={error.status}/>}
+            {error && <ErrorComponent msg={' Posting comment failed'} status={'Error'}/>}
         </FancyBox>
     )
 }
