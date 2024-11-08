@@ -1,4 +1,4 @@
-#individual-article h3{
+#individual-article h3 {
     text-decoration: underline;
     font-size: 6.5vw;
     margin: 0.5vw;
@@ -6,7 +6,8 @@
 }
 
 #individual-article p {
-    margin: 1vh 0
+    margin: 2vh 0;
+    font-size: 5.5vw;
 }
 
 #individual-article-info {
@@ -17,8 +18,7 @@
     align-items: center;
 }
 
-#individual-article img{
-    margin-top: 1vw;
+#individual-article img {
     width: 70%;
     grid-column: 1;
     grid-row: 1 / 4;
@@ -47,4 +47,49 @@
 .button-expanded {
     margin-top: 1vh;
     margin-bottom: 2vh;
+}
+
+@media (min-width: 768px) {
+    #individual-article h3 {
+        font-size: 4.9vw;
+    }
+
+    #individual-article p {
+        font-size: 3.5vw;
+    }
+
+    #individual-article-info {
+        font-size: 3.5vw;
+    }
+    
+    #individual-article img {
+        width: 60%
+    }
+
+    #individual-article button{
+        font-size: 3.5vw;
+    }
+}
+
+@media (min-width: 1024px) {
+    #individual-article h3 {
+        font-size: 3.5vw;
+    }
+    
+    #individual-article p {
+        font-size: 2vw;
+    }
+    
+    #individual-article-info {
+        font-size: 1.75vw;
+    }
+    
+    #individual-article img {
+        margin-top: 1vw;
+        width: 50%;
+    }
+   
+    #individual-article button{
+        font-size: 1.75vw;
+    }
 }
