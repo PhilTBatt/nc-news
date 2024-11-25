@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://nc-news-7miy.onrender.com/api'
+    baseURL: 'https://be-nc-news-oovq.onrender.com/api'
 })
 
 export function getArticles(topic, sort_by, order) {
