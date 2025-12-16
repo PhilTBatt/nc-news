@@ -1,3 +1,13 @@
+.button-expanded button{
+    font-size: 4vh;
+    margin: 2vh 0vh
+}
+
+.button-collapsed button{
+    font-size: 4vh;
+    margin: 2vh 0vh
+}
+
 #cant-post-comment {
     margin-top: 1vh;
 }
@@ -21,7 +31,7 @@
 }
 
 #post-comment-form span {
-    vertical-align: 0.75vh
+    vertical-align: 0.5vh
 }
 
 #post-comment-form textarea {
@@ -46,18 +56,33 @@
 }
 
 #comments-list button{
-    margin: 0 0 1vw 5vw;
-    font-size: 5vw;
+    margin: 0 0 1vh 0;
+    font-size: 4vw;
     line-height: 1.1;
+}
+
+#comments-list p {
+    font-size: 4vw;
+    margin: 0 1vw 1vh 1vw;
+}
+
+#comments-list  #comment-user {
+    font-size: 5.5vw;
+}
+
+#comments-list #comment-likes {
+    font-size: 3.5vw;
+    margin-bottom: 0.5vh;
+}
+
+#comments-list #comment-date {
+    font-size: 3.5vw;
+    margin-bottom: 0.5vh;
 }
 
 @media (min-width: 768px) {
     #post-comment-form {
         font-size: 4vw;
-    }
-
-    #post-comment-form span {
-        vertical-align: 0.25vh
     }
     
     #post-comment-form button{
@@ -78,19 +103,37 @@
         font-size: 2.25vw;
     }
 
-    #post-comment-form span {
-        vertical-align: 0.25vh
-    }
-    
     #post-comment-form button{
         font-size: 1.5vw;
     }
 
-    #comments-list button{
-        font-size: 1vw;
-    }
-
     #post-comment-form textarea {
         width: 70%;
+    }
+
+    #comments-list button{
+        font-size: 1.25vw;
+    }
+
+    #comment-user {
+        font-size: 1.75vw;
+        margin-top: 0.25vh;
+    }
+
+    #comments-list p{
+        font-size: 1.5vw;
+        margin: 0 1vw 1.5vh 1vw;
+    }
+
+    #comments-list #comment-user {
+        font-size: 2vw;
+    }
+
+    #comments-list #comment-likes {
+        font-size: 1.25vw;
+    }
+
+    #comments-list #comment-date {
+        font-size: 1.25vw;
     }
 }

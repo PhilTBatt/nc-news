@@ -23,13 +23,18 @@ export function CommentCard({comment, comments, setComments}) {
     return (
         <FancyBox className="comment">
             <li>
-                User: {comment.author}
-                <br/>
-                {comment.body}
-                <br/>
-                Likes: {comment.votes}
-                <br/>
-                Posted: {new Date(comment.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })}
+            <p id="comment-user">
+                    {comment.author}
+                </p>
+                <p>
+                    {comment.body}
+                </p>
+                <p id="comment-likes">
+                    Likes: {comment.votes}
+                </p>
+                <p id="comment-date">
+                    Posted: {new Date(comment.created_at).toLocaleString("en-GB", {day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric' })}
+                </p>
                 {comment.author === user && <button onClick={removeComment} disabled={isDeleting}>
                     {!error && !isDeleting ? 'Delete' : !error ? 'Deleting' : 'Error'}
                 </button>}
